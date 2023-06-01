@@ -10,9 +10,11 @@ export interface Game {
     metacritic_url: string;
     genres: Array<Genre>;
     parent_platforms: Array<ParentPlatform>;
-    plubishers: Array<Plubisher>;
+    publishers: Array<Plubisher>;
     rating: number;
     ratings: Array<Rating>;
+    website: string;
+    description: string;
     screenshots: Array<Screenshot>;
     trailers: Array<Trailer>;
 }

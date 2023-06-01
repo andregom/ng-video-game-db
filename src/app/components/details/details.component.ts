@@ -29,8 +29,10 @@ export class DetailsComponent implements OnInit, OnDestroy {
     metacritic_url: '',
     genres: [],
     parent_platforms: [],
-    plubishers: [],
+    publishers: [],
     rating: 0,
+    website: '',
+    description: '',
     ratings: [],
     screenshots: [],
     trailers: []
@@ -173,7 +175,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
   getGameDetails(id: string): void {
     this.gameSub = this.httpService
       .getGame(id).subscribe((gameResponse: Game) => {
-        console.log(gameResponse);
         this.game = gameResponse;
 
 
@@ -182,21 +183,18 @@ export class DetailsComponent implements OnInit, OnDestroy {
           this.gameRating = this.game.metacritic;
 
           console.log(this.gameRating);
-          // Update the chart series data
+
           if (this.chartComponent && this.chartComponent.chart) {
             const chart = this.chartComponent.chart;
             const series = chart.series[0];
           
-            // Update the series data
             series.points[0].update(this.gameRating);
-          
-            // Update the plotBands
+
             const plotBands = chart.yAxis[0].plotLinesAndBands;
             plotBands[plotBands.length - 1].options.to = this.gameRating;
             plotBands[plotBands.length - 1].options.color = this.colors[
               this.colorLimits.indexOf(this.colorLimits.find(limit => this.gameRating <= limit) ?? 0)
             ];
-            console.log(plotBands[plotBands.length - 1]);
             
             chart.update({
               pane: {
@@ -209,9 +207,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
               }
             });
           
-            // Redraw the chart to reflect the changes
             chart.redraw();
-            // this.changeDetectorRef.detectChanges();
           }
 
         }, 50);
