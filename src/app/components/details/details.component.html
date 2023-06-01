@@ -1,0 +1,42 @@
+<div class="details">
+    <div class="game-banner">
+        <img
+          class="game-img"
+          src="{{ game.background_image }}"
+          alt=""
+        />
+    </div>
+    <div class="game-content">
+        <div class="details-wrapper">
+            <div class="game-header">
+                <h1 class="game-header-title">{{ game.name }}</h1>
+                <h2 class="game-header-release-date">
+                    Release: {{ game.released | date }}
+                </h2>
+                <p class="game-header-genres">
+                    <span
+                        *ngFor="let genre of game.genres; let last = last"
+                    >{{ genre.name }}<span *ngIf="!last">, </span>
+                    </span>
+                </p>
+                <figure class="game-gauge">
+                    <highcharts-chart
+                        #chart
+                        [ngClass]="'chart-container'"
+                        [Highcharts] = "highcharts" 
+                        [options] = "gaugeOptions"
+                        style = "width: 280%; display: block;"
+                    >
+                    </highcharts-chart>
+                    <a
+                      class="game-gauge-label"
+                      target="_blank"
+                      href="{{ game.metacritic_url }}"
+                    >Metacritic</a>
+                </figure>
+                <!-- here we go tabs -->
+                <app-game-tabs></app-game-tabs>
+            </div>
+        </div>
+    </div>
+</div>

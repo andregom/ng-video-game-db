@@ -1,0 +1,120 @@
+.details-wrapper {
+    max-width: 1600px;
+    margin: 20px auto;
+    position: relative;
+    color: white;
+}
+
+.chart-container {
+    position: absolute;
+    left: -170px;
+    bottom: -122px;
+    // margin: auto 0px
+}
+
+::ng-deep .details {
+    highcharts-chart {
+        width: 300px;
+        height: 150px;
+        // display: block;
+        // float: left;
+    }
+
+    .game-gauge {
+        position: absolute;
+        top: 50px;
+        right: 0px;
+
+        &-label {
+            font-size: 20px;
+            color: #fff;
+            position: relative;
+            bottom: 60px;
+        }
+    }
+
+    .game {
+        &-banner {
+            height: 442px;
+            overflow: hidden;
+        }
+
+        &-img {
+            width: 100%;
+            filter: blur(1px);
+        }
+
+        &-content {
+            text-align: center;
+            position: relative;
+            top: -220px;
+        }
+
+        &-header {
+            &-title {
+                font-size: 70px;
+                color: #fff;
+                font-weight: 500;
+                line-height: 70px;
+            }
+
+            &-release-date {
+                color: #fff;
+                font-weight: 500;
+            }
+
+            &-genres {
+                font-weight: 500;
+            }
+        }
+    }
+
+    //     .highcharts-data-table table {
+    //         font-family: Verdana, sans-serif;
+    //         border-collapse: collapse;
+    //         border: 1px solid #ebebeb;
+    //         margin: 10px auto;
+    //         text-align: center;
+    //         width: 100%;
+    //         max-width: 500px;
+    //     }
+
+    //     .highcharts-data-table caption {
+    //         padding: 1em 0;
+    //         font-size: 1.2em;
+    //         color: #555;
+    //     }
+
+    //     .highcharts-data-table th {
+    //         font-weight: 600;
+    //         padding: 0.5em;
+    //     }
+
+    //     .highcharts-data-table td,
+    //     .highcharts-data-table th,
+    //     .highcharts-data-table caption {
+    //         padding: 0.5em;
+    //     }
+
+    //     .highcharts-data-table thead tr,
+    //     .highcharts-data-table tr:nth-child(even) {
+    //         background: #f8f8f8;
+    //     }
+
+    //     .highcharts-data-table tr:hover {
+    //         background: #f1f7ff;
+    //     }
+
+    //     @media (max-width: 600px) {
+    //         .highcharts-figure,
+    //         .highcharts-data-table table {
+    //             width: 100%;
+    //         }
+
+    //         .highcharts-figure .chart-container {
+    //             width: 300px;
+    //             float: none;
+    //             margin: 0 auto;
+    //         }
+    //     }
+}
